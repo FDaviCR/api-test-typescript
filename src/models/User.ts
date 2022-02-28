@@ -9,10 +9,18 @@ export interface UserInstance extends Model {
 export const User = sequelize.define<UserInstance>("User",{
     id: {
         primaryKey: true,
+        autoIncrement: true,
         type: DataTypes.INTEGER
     },
     username: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        set(value: string) {
+            let name:string = value.toLowerCase();
+            this.setDataValue('username', name);
+        },
+        get() {
+            return this.getDataValue('username').toUpperCase();
+        }
     }
 },{
     tableName: 'users',
