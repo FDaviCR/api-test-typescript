@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../instances/mysql';
+import { sequelize } from '../database/mysql';
 
 export interface UserInstance extends Model {
     id: number;
