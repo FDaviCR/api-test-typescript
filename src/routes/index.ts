@@ -14,6 +14,9 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.get('/users', UserController.allUsers)
-router.post('/upload', upload.single('image'), ApiController.uploadFile)
+router.post('/upload', upload.fields([
+    { name: 'avatar', maxCount: 1},
+    { name: 'gallery', maxCount: 3}
+]), ApiController.uploadFile)
 
 export default router;

@@ -24,7 +24,7 @@ server.use(cors());
 server.use(express.static(path.join(__dirname, '../public')));
 server.use(express.urlencoded({ extended: true }));
 
-server.use('api/', main);
+server.use('/', main);
 server.use('/painel', painel);
 
 server.use((req: Request, res: Response) => {
